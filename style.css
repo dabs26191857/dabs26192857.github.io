@@ -1,0 +1,130 @@
+/* 字體與整體設定 */
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  line-height: 1.6;
+  color: #0a0a0a;
+}
+
+a {
+  color: #102fdd;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 標頭區 */
+header {
+  background-color: #38a9eb;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+/* 導覽列 */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 1.5rem;
+}
+
+nav ul li a {
+  color: rgba(243, 247, 46, 0.822);
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #f5a80f;
+}
+
+/* 各區塊 */
+section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* 卡片樣式 */
+.services,
+.portfolio {
+  display: grid ;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: rgb(92, 193, 233);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+ 
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* 聯絡資訊 */
+#contact ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+#contact ul li {
+  margin: 0.5rem 0;
+}
+
+/* 頁尾 */
+footer {
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
