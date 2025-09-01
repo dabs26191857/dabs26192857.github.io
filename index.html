@@ -6,80 +6,81 @@
   <title>達博思工程顧問有限公司</title>
   <link rel="icon" type="image/x-icon" href="images/公司標誌.png">
   <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: "Noto Sans TC", sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-    }
-
-    header {
-      background-color: #0697eb;
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-    }
-
-    nav ul li {
-      margin: 0 1rem;
-    }
-
-    nav ul li a {
-      color: rgb(239, 243, 10);
-      text-decoration: none;
-    }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .services, .portfolio {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      background-color: #0f9aeb;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-  </style>
+  
 </head>
 <body>
-  <header>
+    
+   <header>
     <h1>達博思工程顧問有限公司</h1>
     <p>創意．美感．實現</p>
     <nav>
-      <ul>
+      <ul class="menu">
         <li><a href="#about">關於我們</a></li>
-        <li><a href="#services">服務項目</a></li>
-        <li><a href="#portfolio">工程實績</a></li>
+        <li class="dropdown">
+          <a href="#services">服務項目</a>
+          <ul class="dropdown-content">
+            <li><a href="#">調查研究</a></li>
+            <li><a href="#">工程規劃</a></li>
+            <li><a href="#">工程設計</a></li>
+            <li><a href="施工監造.html">施工監造</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#portfolio">工程實績</a>
+          <ul class="dropdown-content">            
+            <li><a href="#">路面養護及改善工程</a></li>
+            <li><a href="#">道路附屬設施工程</a></li>
+            <li><a href="#">排水維護改善工程</a></li>
+            <li><a href="#">雨水系統設施維護暨清疏工程</a></li>
+            <li><a href="#">公園綠美化作業</a></li>
+            <li><a href="#">公園體健器材及遊樂設施改善工程</a></li>
+            <li><a href="#">樹木搶災作業</a></li>
+            <li><a href="#">木棧步道改善工程</a></li>
+            <li><a href="#">籃球場運動天幕興建工程</a></li>
+            <li><a href="#">抽水站管理維護及颱風進駐工程</a></li>
+            <li><a href="#">停車場高壓連鎖磚改善工程</a></li>
+          </ul>
+        </li>
+
+        <li><a href="團隊.html">組織架構</a></li>
         <li><a href="#contact">聯絡我們</a></li>
+        <!---<li><span class="menu-icon" onclick="toggleMenu()">關於我們</span></li>-->
+        
+        
       </ul>
     </nav>
   </header>
 
+  <!---大圖輪播-->
+  <div class="slideshow-container">
 
-  <img src="images/大崁之心.jpg"width="147" height="110" alt="大崁之心" style="width: 140%; border: radius 20px;">
+    <div class="mySlides fade">
+      <img src="images/大崁之心.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="images/公司門面.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="images/天幕.png" style="width:120%">
+    </div>
+
+  <!-- 上一張 / 下一張 -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  </div>
+
+  <!-- 點點 -->
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+    
+  <!---end大圖輪播-->
+
 
   <section id="about">
     <h2>公司簡介</h2>
@@ -108,9 +109,15 @@
         <h3>工程規劃及設計</h3>
         <p>工址調查、環境影響評估、可行性研究、初步與細部設計、施工規範編訂、工程計算、施工與進度計畫、預算與招標資料編撰。</p>
       </div>
+      <div class="card">
+        <h3>創新及維護</h3>
+        <p>雨水積磚工法</p>
+        <p>e-GNSS即時動態測量</p>
+        <p>DJI正射影像</p>
+      </div>
 
       <div class="card">
-        <h3>施工監造</h3>
+        <h3><a href="施工監造.html">施工監造</a></h3>
         <p>1.現場監工，執行品質、安全、進度與環保監控</p>
         <p>2.擬定監造計畫、撰寫日誌與品質文件、材料與施工變更紀錄</p>
         <p>3.定期稽核施工行為與文件、現場查驗施工品質與安全作業</p>
@@ -132,12 +139,7 @@
         <p>9.專案風險管理與品質控制</p>
         <p>10.專案收尾與驗收支援</p>
       </div>
-      <div class="card">
-        <h3>創新及維護</h3>
-        <p>雨水積磚工法</p>
-        <p>e-GNSS即時動態測量</p>
-        <p>DJI正射影像</p>
-      </div>
+      
     </div>
   </section>
 
@@ -168,7 +170,8 @@
     <p>您可透過以下方式聯繫我們</p>
     <ul>
       <li>Email: <a href="mailto:dabs261857@gmail.com">dabs261857@gmail.com</a></li>
-      <li>電話: (02) 2619-0857 </li>
+      <li>市話: (02) 2619-0857 </li>
+      <li>電話: 0919328206 </li>
       <li>地址: 新北市八里區文昌六街78號1樓</li>
     </ul>
   </section>
@@ -177,23 +180,7 @@
     <p>© 2025 達博思工程顧問有限公司 | Design with Passion</p>
   </footer>
 
-  <script>
-  // 簡單的動畫觸發
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.2
-  });
-
-  // 監聽所有 .animate-on-scroll
-  document.querySelectorAll('.animate-on-scroll').forEach(el => {
-    observer.observe(el);
-  });</script>
+  <script src="script.js"></script>
 
 </body>
 </html>
