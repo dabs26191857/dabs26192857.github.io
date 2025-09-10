@@ -31,7 +31,7 @@ body {
 }
 /* 標頭區 */
 header {
-  background-color: #38a9eb;
+  background-color: #0b9ff4;
   color: white;
   padding: 2rem 1rem;
   text-align: center;
@@ -106,15 +106,23 @@ nav ul {
 
 .slideshow-container {
   position: relative;
+  
   max-width: 1000px;
-  margin: auto;
+  height: 800px;
+  margin: auto;overflow: hidden;    /* 隱藏超出範圍的部分 */
+  background: #000;    /* 避免有空白時露出背景 */
 }
-
+/* 每一張輪播圖片 */
 .mySlides {
   display: none;
+  width: 100%;
+  height: 100%;
 }
 
-img {
+.mySlides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 填滿容器，保持比例裁切 */
   vertical-align: middle;
 }
 
@@ -150,9 +158,19 @@ img {
 }
 
 .active, .dot:hover {
-  background-color: #717171;
+  --color: #717171;
 }
 /*end大圖輪播*/
+
+/*圖片*/
+.img {
+  position: relative;
+ 
+  max-width: 1200px;
+  height: 800px;
+  margin: auto;
+}
+/*end圖片*/
 
 /* 各區塊 */
 section {
@@ -174,8 +192,17 @@ section h2 {
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: 2rem;
 }
-
+.hero{
+  /* 讓區塊本身有高度，背景圖不會影響卡片 */
+  min-height: 420px;             /* 依需求調整 */
+  background-image: url('images/地下道合照.jpg');
+  background-size: cover;
+  background-position: center;
+}
 .card {
+  
+  grid-template-columns: repeat(3, 1fr); /* 手機改成 1 或 2 欄 */
+  gap: 24px;
   background: rgb(92, 193, 233);
   padding: 1.5rem;
   border-radius: 10px;
