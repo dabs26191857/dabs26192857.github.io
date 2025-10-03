@@ -1,6 +1,6 @@
 
 // 取得所有 dropdown 按鈕
-let dropdowns = document.querySelectorAll(".dropdown-btn");
+let dropdowns = document.querySelectorAll(".dropdown-btn"); //Documen作為網頁入口
 
 dropdowns.forEach(function(btn) {
   btn.addEventListener("click", function() {
@@ -60,3 +60,22 @@ setInterval(function(){
   document.querySelectorAll('.animate-on-scroll').forEach(el => {
     observer.observe(el);
   });
+
+  //取得按鈕TOP
+  let topBtn= document.getElementById("topBtn"); //getElementByID()快速訪問特定元素()的方法
+  //User 滾動至200px 才出現按鈕
+  window.onscroll= function(){
+    if(document.body.scrollTop >100 ||document.documentElement.scrollTop> 100){  //獲取或设置元素内容从其顶部边缘滚动的像素数。
+      topBtn.style.display = "block";
+    }   else{
+      topBtn.style.display ="none";
+    }
+  };  
+
+  // 點擊按鈕，平滑滾動回頂端
+  function topFunction() {
+   window.scrollTo({
+     top: 0,
+     behavior: "smooth"
+    });
+  }

@@ -32,7 +32,7 @@ body {
 /* 標頭區 */
 header {
   background-color: #0b9ff4;
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 2rem 1rem;
   text-align: center;
 }
@@ -40,6 +40,15 @@ header {
 header h1 {
   margin: 0;
   font-size: 2.5rem;
+  color: transparent;
+
+
+	-webkit-text-stroke: 2px #fff;
+  text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
 }
 
 header p {
@@ -249,4 +258,28 @@ footer {
   text-align: center;
   padding: 1.5rem;
   font-size: 0.9rem;
+}
+/* 回頂端*/
+#topBtn{
+    display: none;   /*預設隱藏*/
+    position:fixed;
+    bottom:40px;    /*離底部的距離*/
+    right:40px;     /*離右邊界的距離*/
+    z-index:99;/*top圖案高於其他item*/
+    font-size: 20px; /*字體大小*/
+    border: none;  
+    background-color: rgba(128, 128, 128, 0.518);
+    color:white ;
+    cursor:pointer;
+    padding: 15px 20px;/*设置元素所有四条边的内边距区域。*/
+    border-radius: 50%; /*4角弧度*/
+    transition: opacity 0.3s, transform 0.3s;
+
+}
+
+#topBtn:hover {
+  background-color: yellow;
+  transform: scale(1.1);
+  color: rgb(92, 193, 233);   /* 讓 hover 更清楚 */
+
 }
