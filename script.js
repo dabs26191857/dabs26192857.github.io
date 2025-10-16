@@ -1,6 +1,6 @@
 
 // 取得所有 dropdown 按鈕
-let dropdowns = document.querySelectorAll(".dropdown-btn"); //Documen作為網頁入口
+let dropdowns = document.querySelectorAll(".dropdown-btn");
 
 dropdowns.forEach(function(btn) {
   btn.addEventListener("click", function() {
@@ -10,7 +10,7 @@ dropdowns.forEach(function(btn) {
   });
 });
 
-// 大圖輪播
+// ==================== 大圖輪播 ====================
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -23,59 +23,68 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-  let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
+
+  // 🧩 防呆：若本頁沒有輪播圖片，直接跳出
+  if (slides.length === 0) return;
+
+  if (n > slides.length) { slideIndex = 1; }
+  if (n < 1) { slideIndex = slides.length; }
+
+  for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
+  for (let i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+
+  slides[slideIndex - 1].style.display = "block";
+  if (dots[slideIndex - 1]) dots[slideIndex - 1].className += " active";
 }
 
-/* 自動輪播 */
-setInterval(function(){
-  plusSlides(1);
-}, 5000); // 每5秒自動切換
+// ✅ 只有在頁面有 mySlides 時才啟動自動輪播
+if (document.getElementsByClassName("mySlides").length > 0) {
+  setInterval(() => { plusSlides(1); }, 5000); // 每5秒自動切換
+}
 
-//end 大圖輪播
-
-// 簡單的動畫觸發
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.2
-  });
-// 監聽所有 .animate-on-scroll
-  document.querySelectorAll('.animate-on-scroll').forEach(el => {
-    observer.observe(el);
-  });
-
-  //取得按鈕TOP
-  let topBtn= document.getElementById("topBtn"); //getElementByID()快速訪問特定元素()的方法
-  //User 滾動至200px 才出現按鈕
-  window.onscroll= function(){
-    if(document.body.scrollTop >100 ||document.documentElement.scrollTop> 100){  //獲取或设置元素内容从其顶部边缘滚动的像素数。
-      topBtn.style.display = "block";
-    }   else{
-      topBtn.style.display ="none";
+// ==================== 滾動動畫 ====================
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
     }
-  };  
+  });
+}, { threshold: 0.2 });
 
-  // 點擊按鈕，平滑滾動回頂端
-  function topFunction() {
-   window.scrollTo({
-     top: 0,
-     behavior: "smooth"
-    });
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
+  observer.observe(el);
+});
+
+// ==================== 回到頂端按鈕 ====================
+let topBtn = document.getElementById("topBtn");
+
+window.onscroll = function() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
   }
+};
+
+function topFunction() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+// ==================== 收合區塊 (collapse) ====================
+let btn = document.getElementsByClassName("my-collapse");
+for (let i = 0; i < btn.length; i++) {
+  btn[i].addEventListener("click", function() {
+
+    this.nextElementSibling.classList.toggle("show");//🔸 控制內容展開
+  });
+}
