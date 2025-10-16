@@ -3,12 +3,13 @@ body {
   font-family: "Noto Sans TC", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
+  background-color: rgb(255, 255, 255);
   line-height: 1.6;
   color: #0a0a0a;
 }
 /* 導覽列 */
 .menu {
+  background-color: rgb(119, 214, 251);
   list-style: none;
   margin: 0;
   padding: 0;
