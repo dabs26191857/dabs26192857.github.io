@@ -88,3 +88,7 @@ for (let i = 0; i < btn.length; i++) {
     this.nextElementSibling.classList.toggle("show");//🔸 控制內容展開
   });
 }
+function toggleMenu() {
+  const navList = document.querySelector("nav ul");
+  navList.classList.toggle("show");
+}
